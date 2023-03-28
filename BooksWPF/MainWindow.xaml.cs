@@ -49,5 +49,25 @@ namespace BooksWPF
             cboCountry.DisplayMemberPath = "CountryName";
             cboCountry.SelectedValuePath = "Id";
         }
+
+        private void btnAddBook_Click(object sender, RoutedEventArgs e)
+        {
+            Book newBook = new Book();
+            newBook.Author = txtAuthor.Text;
+            newBook.Title = txtTitle.Text;
+            newBook.Price = decimal.Parse(txtPrice.Text);
+            newBook.CountryId = (int)cboCountry.SelectedValue;
+            AddBook(newBook);
+            PopulateListBooks();
+        }
+        private void AddBook(Book newbook)
+        {
+            string sql = "INSERT INTO Book (Author, Title ,Price, CountryId)" +
+                "VALUES (@Author, @Title, @Price, @CountryId)";
+            using(IDbConnection connection = new SqlConnection(GetConnectionString.ConStr("WPFBooks")))
+            {
+                connection.Execute(sql, newbook);
+            }          
+        }
     }
 }

@@ -13,17 +13,20 @@
                 <GradientStop Color="#FF652EB3" Offset="0.026"/>
             </LinearGradientBrush>
         </Grid.Background>
-        <Label x:Name="lblAuthor" Content="Author" HorizontalAlignment="Left" Margin="83,69,0,0" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.759,0.595" Foreground="Yellow" FontWeight="Bold"/>
-        <Label x:Name="lblTitle" Content="Title" HorizontalAlignment="Left" Margin="271,69,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.395,-0.114" Width="64" FontSize="14" Foreground="Yellow" FontWeight="Bold"/>
-        <Label x:Name="lblPrice" Content="Price" HorizontalAlignment="Left" Margin="440,69,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.263,-0.422" Width="68" FontSize="14" Foreground="Yellow" FontWeight="Bold"/>
-        <Label x:Name="lblCountry" Content="Country" HorizontalAlignment="Left" Margin="605,69,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.526,-1.116" FontSize="14" Foreground="Yellow" FontWeight="Bold"/>
-        <TextBox HorizontalAlignment="Left" Margin="61,103,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="97"/>
-        <TextBox HorizontalAlignment="Left" Margin="205,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
-        <TextBox HorizontalAlignment="Left" Margin="425,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="74" RenderTransformOrigin="0.459,-0.276"/>
+        <Label x:Name="lblAuthor" Content="Author" HorizontalAlignment="Left" Margin="81,74,0,0" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.759,0.595" Foreground="Yellow" FontWeight="Bold"/>
+        <Label x:Name="lblTitle" Content="Title" HorizontalAlignment="Left" Margin="269,74,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.395,-0.114" Width="64" FontSize="14" Foreground="Yellow" FontWeight="Bold"/>
+        <Label x:Name="lblPrice" Content="Price" HorizontalAlignment="Left" Margin="438,74,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.263,-0.422" Width="68" FontSize="14" Foreground="Yellow" FontWeight="Bold"/>
+        <Label x:Name="lblCountry" Content="Country" HorizontalAlignment="Left" Margin="603,74,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.526,-1.116" FontSize="14" Foreground="Yellow" FontWeight="Bold"/>
+        <TextBox x:Name="txtAuthor" HorizontalAlignment="Left" Margin="63,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="97"/>
+        <TextBox x:Name="txtTitle" HorizontalAlignment="Left" Margin="205,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170"/>
+        <TextBox x:Name="txtPrice" HorizontalAlignment="Left" Margin="425,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="74" RenderTransformOrigin="0.459,-0.276"/>
         <ComboBox x:Name="cboCountry" HorizontalAlignment="Left" Margin="575,103,0,0" VerticalAlignment="Top" Width="120"/>
-        <Label x:Name="lblHeaderId" Content="ID" HorizontalAlignment="Left" Margin="45,24,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Foreground="Yellow"/>
-        <Label x:Name="lblId" Content=".." HorizontalAlignment="Left" Margin="92,24,0,0" VerticalAlignment="Top" FontSize="20" Foreground="Lime" Background="{x:Null}"/>
+        <Label x:Name="lblHeaderId" Content="Book ID" HorizontalAlignment="Left" Margin="309,21,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Foreground="Cyan"/>
+        <Label x:Name="lblId" Content=".." HorizontalAlignment="Left" Margin="400,21,0,0" VerticalAlignment="Top" FontSize="20" Foreground="Cyan" Background="{x:Null}"/>
         <ListBox x:Name="lstBooks" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="61,217,326,98"/>
+        <Button x:Name="btnAddBook" Content="Add New Book" HorizontalAlignment="Left" Margin="63,156,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,-0.248" Width="105" BorderBrush="Red" Click="btnAddBook_Click"/>
+        <Button x:Name="btnUpdateBook" Content="Update Book" HorizontalAlignment="Left" Margin="228,156,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,-0.248" Width="105" BorderBrush="Red"/>
+        <Button x:Name="btnDeleteBook" Content="Delete Book" HorizontalAlignment="Left" Margin="400,156,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,-0.248" Width="105" BorderBrush="Red"/>
 
     </Grid>
 </Window>
