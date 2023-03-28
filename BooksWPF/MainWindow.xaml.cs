@@ -18,8 +18,8 @@ namespace BooksWPF
         public MainWindow()
         {
             InitializeComponent();
-            GetAllBooks();
             PopulateListBooks();
+            FillCboCountries();
         }
         private List<Book> GetAllBooks()
         {
@@ -32,7 +32,22 @@ namespace BooksWPF
         }
         private void PopulateListBooks()
         {
-            lstBooks.ItemsSource = books;
+            lstBooks.ItemsSource = GetAllBooks();
+        }
+        private List<Country> GetAllCountries()
+        {
+            string sql = "SELECT * FROM Country";
+            using(IDbConnection connection = new SqlConnection(GetConnectionString.ConStr("WPFBooks")))
+            {
+                countries = connection.Query<Country>(sql).ToList();
+                return countries;
+            }
+        }
+        private void FillCboCountries()
+        {
+            cboCountry.ItemsSource = GetAllCountries();
+            cboCountry.DisplayMemberPath = "CountryName";
+            cboCountry.SelectedValuePath = "Id";
         }
     }
 }
