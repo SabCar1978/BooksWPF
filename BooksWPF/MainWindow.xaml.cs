@@ -143,12 +143,13 @@ namespace BooksWPF
             if (result == MessageBoxResult.Yes)
             {
                 DeleteBookById((int)lblId.Content);
+                PopulateListBooks();
             }
             else
             {
                 return;
             }
-            PopulateListBooks();
+            
         }
     }
 }
