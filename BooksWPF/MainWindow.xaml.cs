@@ -96,7 +96,24 @@ namespace BooksWPF
                 cboCountry.SelectedValue = selectedBook.CountryId;
             }
         }
-
+        private void UpdateBook(Book updateBook)
+        {
+            string sql = "UPDATE Book " +
+                         "SET Author = @Author, Title = @Title, Price = @Price, CountryId = @CountryId " +
+                         "WHERE Id = @Id";
+            using (IDbConnection connection = new SqlConnection(GetConnectionString.ConStr("WPFBooks")))
+            {
+                connection.Execute(sql,
+                new
+                {
+                    Id = updateBook.Id,
+                    Author = updateBook.Author,
+                    Title = updateBook.Title,
+                    Price = updateBook.Price,
+                    CountryId = updateBook.CountryId,
+                });
+            }
+        }
         private void btnUpdateBook_Click(object sender, RoutedEventArgs e)
         {
             Book updatedBook = new Book();
@@ -109,22 +126,6 @@ namespace BooksWPF
             PopulateListBooks();
             ClearFields();
             lblId.Content = updatedBook.Id + " Updated!";
-        }
-        private void UpdateBook(Book updateBook)
-        {
-            using (IDbConnection connection = new SqlConnection(GetConnectionString.ConStr("WPFBooks")))
-            {
-                connection.Execute("UPDATE Book SET Author = @Author, Title = @Title, " +
-                    "Price = @Price, CountryId = @CountryId WHERE Id = @Id",
-                new
-                {
-                    Id = updateBook.Id,
-                    Author = updateBook.Author,
-                    Title = updateBook.Title,
-                    Price = updateBook.Price,
-                    CountryId = updateBook.CountryId,
-                });
-            }
         }
         private void DeleteBookById(int id)
         {
