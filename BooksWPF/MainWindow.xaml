@@ -5,7 +5,7 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BooksWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="450" Width="800">
+        Title="MainWindow" Height="430" Width="760">
     <Grid Margin="0,3,0,-3">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -18,20 +18,20 @@
             <ColumnDefinition Width="56*"/>
             <ColumnDefinition Width="99*"/>
         </Grid.ColumnDefinitions>
-        <Label x:Name="lblAuthor" Content="Author" HorizontalAlignment="Left" Margin="56,74,0,0" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.759,0.595" Foreground="Yellow" FontWeight="Bold" Grid.Column="1"/>
-        <Label x:Name="lblTitle" Content="Title" HorizontalAlignment="Left" Margin="244,74,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.395,-0.114" Width="64" FontSize="14" Foreground="Yellow" FontWeight="Bold" Grid.ColumnSpan="2" Grid.Column="1"/>
-        <Label x:Name="lblPrice" Content="Price" HorizontalAlignment="Left" Margin="133,74,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.263,-0.422" Width="68" FontSize="14" Foreground="Yellow" FontWeight="Bold" Grid.Column="2"/>
-        <Label x:Name="lblCountry" Content="Country" HorizontalAlignment="Left" Margin="298,74,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.526,-1.116" FontSize="14" Foreground="Yellow" FontWeight="Bold" Grid.Column="2"/>
-        <TextBox x:Name="txtAuthor" HorizontalAlignment="Left" Margin="38,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="97" Grid.Column="1"/>
-        <TextBox x:Name="txtTitle" HorizontalAlignment="Left" Margin="180,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="170" Grid.ColumnSpan="2" Grid.Column="1"/>
-        <TextBox x:Name="txtPrice" HorizontalAlignment="Left" Margin="120,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="74" RenderTransformOrigin="0.459,-0.276" Grid.Column="2"/>
-        <ComboBox x:Name="cboCountry" HorizontalAlignment="Left" Margin="270,103,0,0" VerticalAlignment="Top" Width="120" Grid.Column="2"/>
-        <Label x:Name="lblHeaderId" Content="Book ID" HorizontalAlignment="Left" Margin="4,21,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Foreground="Cyan" Grid.Column="2" Background="{x:Null}"/>
+        <Label x:Name="lblAuthor" Content="Author" HorizontalAlignment="Left" Margin="91,76,0,0" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.759,0.595" Foreground="Yellow" FontWeight="Bold" Grid.Column="1"/>
+        <Label x:Name="lblTitle" Content="Title" HorizontalAlignment="Left" Margin="0,76,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.395,-0.114" Width="64" FontSize="14" Foreground="Yellow" FontWeight="Bold" Grid.Column="2"/>
+        <Label x:Name="lblPrice" Content="Price" HorizontalAlignment="Left" Margin="153,76,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.263,-0.422" Width="68" FontSize="14" Foreground="Yellow" FontWeight="Bold" Grid.Column="2"/>
+        <Label x:Name="lblCountry" Content="Country" HorizontalAlignment="Left" Margin="262,76,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.526,-1.116" FontSize="14" Foreground="Yellow" FontWeight="Bold" Grid.Column="2"/>
+        <TextBox x:Name="txtAuthor" HorizontalAlignment="Left" Margin="71,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="76" Grid.Column="1"/>
+        <TextBox x:Name="txtTitle" HorizontalAlignment="Left" Margin="177,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="204" Grid.ColumnSpan="2" Grid.Column="1" RenderTransformOrigin="0.467,0.615"/>
+        <TextBox x:Name="txtPrice" HorizontalAlignment="Left" Margin="142,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59" RenderTransformOrigin="0.459,-0.276" Grid.Column="2"/>
+        <ComboBox x:Name="cboCountry" HorizontalAlignment="Left" Margin="226,103,0,0" VerticalAlignment="Top" Width="135" Grid.Column="2" RenderTransformOrigin="0,0.594"/>
+        <Label x:Name="lblHeaderId" Content="Book ID" HorizontalAlignment="Left" Margin="4,21,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Foreground="Cyan" Grid.Column="2" Background="{x:Null}" BorderBrush="#FF861B1B"/>
         <Label x:Name="lblId" Content="" HorizontalAlignment="Left" Margin="95,18,0,0" VerticalAlignment="Top" FontSize="24" Foreground="Yellow" Background="{x:Null}" FontWeight="Bold" Width="375" Grid.Column="2"/>
-        <ListBox x:Name="lstBooks" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="38,217,105,28" SelectionChanged="lstBooks_SelectionChanged" Grid.ColumnSpan="2" Grid.Column="1"/>
-        <Button x:Name="btnAddBook" Content="Add New Book" HorizontalAlignment="Left" Margin="38,156,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,-0.248" Width="105" BorderBrush="Red" Click="btnAddBook_Click" Grid.Column="1"/>
-        <Button x:Name="btnUpdateBook" Content="Update Book" HorizontalAlignment="Left" Margin="203,156,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,-0.248" Width="105" BorderBrush="Red" Click="btnUpdateBook_Click" Grid.ColumnSpan="2" Grid.Column="1"/>
-        <Button x:Name="btnDeleteBook" Content="Delete Book" HorizontalAlignment="Left" Margin="95,156,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,-0.248" Width="105" BorderBrush="Red" Grid.Column="2" Click="btnDeleteBook_Click"/>
+        <ListBox x:Name="lstBooks" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="71,166,316,78" SelectionChanged="lstBooks_SelectionChanged" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <Button x:Name="btnAddBook" Content="Add New Book" HorizontalAlignment="Left" Margin="226,166,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,-0.248" Width="135" BorderBrush="Red" Click="btnAddBook_Click" Grid.Column="2" Height="25" Background="#FFDDDDDD"/>
+        <Button x:Name="btnUpdateBook" Content="Update Book" HorizontalAlignment="Left" Margin="226,231,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,-0.248" Width="135" BorderBrush="Red" Click="btnUpdateBook_Click" Grid.Column="2" Height="23"/>
+        <Button x:Name="btnDeleteBook" Content="Delete Book" HorizontalAlignment="Left" Margin="226,291,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,-0.248" Width="135" BorderBrush="Red" Grid.Column="2" Click="btnDeleteBook_Click" Height="25"/>
 
     </Grid>
 </Window>

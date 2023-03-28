@@ -49,7 +49,6 @@ namespace BooksWPF
             cboCountry.DisplayMemberPath = "CountryName";
             cboCountry.SelectedValuePath = "Id";
         }
-
         private void btnAddBook_Click(object sender, RoutedEventArgs e)
         {
             lblId.Content = "";
@@ -82,7 +81,6 @@ namespace BooksWPF
                 return returnedId;          
             }
         }
-
         private void lstBooks_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
         {
             Book selectedBook = new Book();
@@ -149,8 +147,7 @@ namespace BooksWPF
             else
             {
                 return;
-            }
-            
+            }        
         }
     }
 }
