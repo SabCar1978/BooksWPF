@@ -16,7 +16,7 @@ namespace BooksWPF.Models
         //public Country Country { get; set; }
         public override string ToString()
         {
-            return $"{Id} {Author} {Price} {Title} {CountryId}";
+            return $"{Id}    {Author}    {Price:f2}    {Title}    {CountryId}";
         }
     }
 }

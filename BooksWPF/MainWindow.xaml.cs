@@ -1,17 +1,10 @@
-﻿using System;
+﻿using BooksWPF.Models;
+using Dapper;
 using System.Collections.Generic;
+using System.Data;
+using System.Data.SqlClient;
 using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows;
-using System.Windows.Controls;
-using System.Windows.Data;
-using System.Windows.Documents;
-using System.Windows.Input;
-using System.Windows.Media;
-using System.Windows.Media.Imaging;
-using System.Windows.Navigation;
-using System.Windows.Shapes;
 
 namespace BooksWPF
 {
@@ -20,9 +13,26 @@ namespace BooksWPF
     /// </summary>
     public partial class MainWindow : Window
     {
+        List<Book> books = new List<Book>();
+        List<Country> countries = new List<Country>();
         public MainWindow()
         {
             InitializeComponent();
+            GetAllBooks();
+            PopulateListBooks();
+        }
+        private List<Book> GetAllBooks()
+        {
+            string sql = "SELECT * FROM Book";
+            using (IDbConnection connection = new SqlConnection(GetConnectionString.ConStr("WPFBooks")))
+            {
+                books = connection.Query<Book>(sql).ToList();
+                return books;
+            }           
+        }
+        private void PopulateListBooks()
+        {
+            lstBooks.ItemsSource = books;
         }
     }
 }
