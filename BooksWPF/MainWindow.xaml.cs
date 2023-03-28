@@ -59,9 +59,17 @@ namespace BooksWPF
             newBook.Price = decimal.Parse(txtPrice.Text);
             newBook.CountryId = (int)cboCountry.SelectedValue;
             int id  = AddBook(newBook);
-            lblId.Content = id;
+            ClearFields();
             PopulateListBooks();
-           
+            lblId.Content = id.ToString() + " Created!";
+        }
+        private void ClearFields()
+        {
+            lblId.Content = string.Empty;
+            txtAuthor.Text = string.Empty;
+            txtTitle.Text = string.Empty;
+            txtPrice.Text = string.Empty;
+            cboCountry.SelectedIndex = -1;
         }
         private int AddBook(Book newbook)
         {
