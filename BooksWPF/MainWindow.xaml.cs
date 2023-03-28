@@ -52,6 +52,7 @@ namespace BooksWPF
 
         private void btnAddBook_Click(object sender, RoutedEventArgs e)
         {
+            lblId.Content = "";
             Book newBook = new Book();
             newBook.Author = txtAuthor.Text;
             newBook.Title = txtTitle.Text;
@@ -70,8 +71,7 @@ namespace BooksWPF
             using (IDbConnection connection = new SqlConnection(GetConnectionString.ConStr("WPFBooks")))
             {
                 var returnedId = connection.Query<int>(sql, newbook).Single();
-                return returnedId;
-                
+                return returnedId;          
             }
         }
 
@@ -85,21 +85,20 @@ namespace BooksWPF
                 txtAuthor.Text = selectedBook.Author;
                 txtTitle.Text = selectedBook.Title;
                 txtPrice.Text = selectedBook.Price.ToString();
-                var result = GetAllCountries().Find(item => item.Id == selectedBook.CountryId);
-                cboCountry.SelectedValue = result.Id;
+                cboCountry.SelectedValue = selectedBook.CountryId;
             }
         }
 
         private void btnUpdateBook_Click(object sender, RoutedEventArgs e)
         {
             Book updatedBook = new Book();
-            //updatedBook.Id = int.Parse(lblId.Content);
+            updatedBook.Id = (int)lblId.Content;
             updatedBook.Title = txtTitle.Text;
             updatedBook.Author = txtAuthor.Text;
             updatedBook.Price = decimal.Parse(txtPrice.Text);
             updatedBook.CountryId = (int)cboCountry.SelectedValue;
             UpdateBook(updatedBook);
-            GetAllBooks();
+            PopulateListBooks();
 
         }
         private void UpdateBook(Book updateBook)
