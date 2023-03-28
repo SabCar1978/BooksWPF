@@ -57,16 +57,21 @@ namespace BooksWPF
             newBook.Title = txtTitle.Text;
             newBook.Price = decimal.Parse(txtPrice.Text);
             newBook.CountryId = (int)cboCountry.SelectedValue;
-            AddBook(newBook);
+            int id  = AddBook(newBook);
+            lblId.Content = id;
             PopulateListBooks();
+           
         }
-        private void AddBook(Book newbook)
+        private int AddBook(Book newbook)
         {
             string sql = "INSERT INTO Book (Author, Title ,Price, CountryId)" +
-                "VALUES (@Author, @Title, @Price, @CountryId)";
+                "VALUES (@Author, @Title, @Price, @CountryId) " +
+                "SELECT CAST(SCOPE_IDENTITY() as int)";
             using (IDbConnection connection = new SqlConnection(GetConnectionString.ConStr("WPFBooks")))
             {
-                connection.Execute(sql, newbook);
+                var returnedId = connection.Query<int>(sql, newbook).Single();
+                return returnedId;
+                
             }
         }
 
@@ -87,6 +92,14 @@ namespace BooksWPF
 
         private void btnUpdateBook_Click(object sender, RoutedEventArgs e)
         {
+            Book updatedBook = new Book();
+            //updatedBook.Id = int.Parse(lblId.Content);
+            updatedBook.Title = txtTitle.Text;
+            updatedBook.Author = txtAuthor.Text;
+            updatedBook.Price = decimal.Parse(txtPrice.Text);
+            updatedBook.CountryId = (int)cboCountry.SelectedValue;
+            UpdateBook(updatedBook);
+            GetAllBooks();
 
         }
         private void UpdateBook(Book updateBook)
@@ -97,7 +110,7 @@ namespace BooksWPF
                     "Price = @Price, CountryId = @CountryId WHERE Id = @Id",
                 new
                 {
-                    id = updateBook.Id,
+                    Id = updateBook.Id,
                     Author = updateBook.Author,
                     Title = updateBook.Title,
                     Price = updateBook.Price,

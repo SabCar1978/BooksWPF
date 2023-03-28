@@ -22,7 +22,7 @@
         <TextBox x:Name="txtPrice" HorizontalAlignment="Left" Margin="425,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="74" RenderTransformOrigin="0.459,-0.276"/>
         <ComboBox x:Name="cboCountry" HorizontalAlignment="Left" Margin="575,103,0,0" VerticalAlignment="Top" Width="120"/>
         <Label x:Name="lblHeaderId" Content="Book ID" HorizontalAlignment="Left" Margin="309,21,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Foreground="Cyan"/>
-        <Label x:Name="lblId" Content=".." HorizontalAlignment="Left" Margin="400,21,0,0" VerticalAlignment="Top" FontSize="20" Foreground="Cyan" Background="{x:Null}"/>
+        <Label x:Name="lblId" Content="" HorizontalAlignment="Left" Margin="400,10,0,0" VerticalAlignment="Top" FontSize="36" Foreground="Yellow" Background="{x:Null}" FontWeight="Bold"/>
         <ListBox x:Name="lstBooks" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="63,217,295,28" SelectionChanged="lstBooks_SelectionChanged"/>
         <Button x:Name="btnAddBook" Content="Add New Book" HorizontalAlignment="Left" Margin="63,156,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,-0.248" Width="105" BorderBrush="Red" Click="btnAddBook_Click"/>
         <Button x:Name="btnUpdateBook" Content="Update Book" HorizontalAlignment="Left" Margin="228,156,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,-0.248" Width="105" BorderBrush="Red" Click="btnUpdateBook_Click"/>
