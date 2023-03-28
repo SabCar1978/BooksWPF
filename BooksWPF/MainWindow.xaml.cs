@@ -69,5 +69,20 @@ namespace BooksWPF
                 connection.Execute(sql, newbook);
             }          
         }
+
+        private void lstBooks_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
+        {
+            Book selectedBook = new Book();
+            selectedBook = lstBooks.SelectedItem as Book;
+            if (selectedBook != null) 
+            { 
+                lblId.Content = selectedBook.Id;
+                txtAuthor.Text = selectedBook.Author;
+                txtTitle.Text = selectedBook.Title;
+                txtPrice.Text = selectedBook.Price.ToString();
+                var result = GetAllCountries().Find(item => item.Id == selectedBook.CountryId);
+                cboCountry.SelectedValue = result.Id;
+            }
+        }
     }
 }
