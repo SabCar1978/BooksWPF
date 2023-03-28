@@ -107,7 +107,8 @@ namespace BooksWPF
             updatedBook.CountryId = (int)cboCountry.SelectedValue;
             UpdateBook(updatedBook);
             PopulateListBooks();
-
+            ClearFields();
+            lblId.Content = updatedBook.Id + " Updated!";
         }
         private void UpdateBook(Book updateBook)
         {
@@ -124,6 +125,30 @@ namespace BooksWPF
                     CountryId = updateBook.CountryId,
                 });
             }
+        }
+        private void DeleteBookById(int id)
+        {
+            string sql = "DELETE FROM Book WHERE Id = @Id";
+            using (IDbConnection connection = new SqlConnection(GetConnectionString.ConStr("WPFBooks")))
+            {
+                connection.Execute(sql, new { Id = id });
+            }
+        }
+        private void btnDeleteBook_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show($"Do you want to delete the book with ID {lblId.Content}", 
+                                                        "Confirmation", 
+                                                        MessageBoxButton.YesNo, 
+                                                        MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes)
+            {
+                DeleteBookById((int)lblId.Content);
+            }
+            else
+            {
+                return;
+            }
+            PopulateListBooks();
         }
     }
 }
