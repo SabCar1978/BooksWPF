@@ -153,12 +153,13 @@ namespace BooksWPF
 
         private void btnUploadCSV_Click(object sender, RoutedEventArgs e)
         {
-            string filepath = @"C:\Intec\Data\CommaSep.txt";
+            string filepath = @"C:\Intec\Data\CommaSepFout.txt";
             List<Book> booksCSV = new List<Book>();
             List<string> lines = File.ReadAllLines(filepath).ToList();
+            char[] separators = new char[] { ';','!','?',':' }; 
             foreach (string line in lines)
             {
-                string[] entries = line.Split(';');
+                string[] entries = line.Split(separators, System.StringSplitOptions.RemoveEmptyEntries);
                 Book book = new Book();
                 book.Author = entries[0];
                 book.Price = decimal.Parse(entries[1]);
