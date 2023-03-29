@@ -28,11 +28,14 @@
         <ComboBox x:Name="cboCountry" HorizontalAlignment="Left" Margin="226,103,0,0" VerticalAlignment="Top" Width="135" Grid.Column="2" RenderTransformOrigin="0,0.594"/>
         <Label x:Name="lblHeaderId" Content="Book ID" HorizontalAlignment="Left" Margin="4,21,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Foreground="Cyan" Grid.Column="2" Background="{x:Null}" BorderBrush="#FF861B1B"/>
         <Label x:Name="lblId" Content="" HorizontalAlignment="Left" Margin="95,18,0,0" VerticalAlignment="Top" FontSize="24" Foreground="Yellow" Background="{x:Null}" FontWeight="Bold" Width="375" Grid.Column="2"/>
-        <ListBox x:Name="lstBooks" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="71,166,316,131" SelectionChanged="lstBooks_SelectionChanged" Grid.ColumnSpan="2" Grid.Column="1"/>
+        <ListBox x:Name="lstBooks" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="71,166,316,136" SelectionChanged="lstBooks_SelectionChanged" Grid.ColumnSpan="2" Grid.Column="1"/>
         <Button x:Name="btnAddBook" Content="Add New Book" HorizontalAlignment="Left" Margin="226,166,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,-0.248" Width="135" BorderBrush="Red" Click="btnAddBook_Click" Grid.Column="2" Height="25" Background="#FFDDDDDD" FontWeight="Bold"/>
         <Button x:Name="btnUpdateBook" Content="Update Book" HorizontalAlignment="Left" Margin="226,231,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,-0.248" Width="135" BorderBrush="Red" Click="btnUpdateBook_Click" Grid.Column="2" Height="23" FontWeight="Bold"/>
         <Button x:Name="btnDeleteBook" Content="Delete Book" HorizontalAlignment="Left" Margin="226,291,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,-0.248" Width="135" BorderBrush="Red" Grid.Column="2" Click="btnDeleteBook_Click" Height="25" FontWeight="Bold"/>
-        <Button x:Name="btnUploadCSV" Grid.Column="1" Content="Upload CSV" HorizontalAlignment="Left" Height="33" Margin="71,331,0,0" VerticalAlignment="Top" Width="138" FontWeight="Bold" FontSize="14" BorderBrush="#FF01035B" Click="btnUploadCSV_Click"/>
+        <Button x:Name="btnUploadCSV" Grid.Column="2" Content="Upload CSV" HorizontalAlignment="Left" Height="22" Margin="226,348,0,0" VerticalAlignment="Top" Width="135" FontWeight="Bold" BorderBrush="#FF01035B" Click="btnUploadCSV_Click" RenderTransformOrigin="3.553,0.654"/>
+        <TextBox x:Name="txtSearchByTitle" Grid.Column="1" HorizontalAlignment="Left" Margin="71,324,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="195" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnSearchByTitle" Grid.Column="1" Content="Search" HorizontalAlignment="Left" Margin="71,348,0,0" VerticalAlignment="Top" Width="120" BorderBrush="Lime" FontWeight="Bold" Height="22"/>
+        <Label x:Name="LblSearch" Grid.Column="1" Content="Enter search terms:" HorizontalAlignment="Left" Margin="71,298,0,0" VerticalAlignment="Top" Cursor="" Foreground="Lime"/>
 
     </Grid>
 </Window>
