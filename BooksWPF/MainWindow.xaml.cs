@@ -6,6 +6,7 @@ using System.Data.SqlClient;
 using System.Linq;
 using System.Windows;
 using System.IO;
+using System.Globalization;
 
 namespace BooksWPF
 {
@@ -150,24 +151,28 @@ namespace BooksWPF
                 return;
             }
         }
-
         private void btnUploadCSV_Click(object sender, RoutedEventArgs e)
         {
             string filepath = @"C:\Intec\Data\CommaSepFout.txt";
+
             List<Book> booksCSV = new List<Book>();
             List<string> lines = File.ReadAllLines(filepath).ToList();
-            char[] separators = new char[] { ';','!','?',':' }; 
+            char[] separators = new char[] { ';', '!', '?', ':' };
+
+            CultureInfo invC = CultureInfo.InvariantCulture; // om punt als decimaal te beschouwen
             foreach (string line in lines)
             {
                 string[] entries = line.Split(separators, System.StringSplitOptions.RemoveEmptyEntries);
                 Book book = new Book();
                 book.Author = entries[0];
-                book.Price = decimal.Parse(entries[1]);
+                book.Price = decimal.Parse(entries[1], invC);
                 book.Title = entries[2];
-                book.CountryId = int.Parse(entries[3]);
+                book.CountryId = int.Parse(entries[3], invC);
                 booksCSV.Add(book);
             }
             ProcessCSV(booksCSV);
+            MessageBox.Show("Data uploaded!");
+
         }
         private void ProcessCSV(List<Book> csvBook)
         {
@@ -191,6 +196,20 @@ namespace BooksWPF
             {
                 connection.Execute(sql, csvBook);
             }
+        }
+        private List<Book> SearchByTitle(string searchterms)
+        {
+            string sql = "SELECT * FROM Book " +
+                         "WHERE Title LIKE @Title ESCAPE '!'";
+            using (IDbConnection connection = new SqlConnection(GetConnectionString.ConStr("WPFBooks")))
+            {
+                books = connection.Query<Book>(sql, new { Title = "%" + searchterms.Replace("%", "!%") + "%" }).ToList();
+                return books;
+            }
+        }
+        private void btnSearchByTitle_Click(object sender, RoutedEventArgs e)
+        {
+            lstBooks.ItemsSource = SearchByTitle(txtSearchByTitle.Text);
         }
     }
 }
