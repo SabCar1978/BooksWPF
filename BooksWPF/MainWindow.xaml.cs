@@ -5,6 +5,7 @@ using System.Data;
 using System.Data.SqlClient;
 using System.Linq;
 using System.Windows;
+using System.IO;
 
 namespace BooksWPF
 {
@@ -148,6 +149,37 @@ namespace BooksWPF
             {
                 return;
             }        
+        }
+
+        private void btnUploadCSV_Click(object sender, RoutedEventArgs e)
+        {
+            string filepath = @"C:\Intec\Data\CommaSep.txt";
+            List<Book> booksCSV = new List<Book>();
+            List<string> lines = File.ReadAllLines(filepath).ToList(); 
+            foreach (string line in lines)
+            {
+                string[] entries = line.Split(';');
+                Book book = new Book();
+                book.Author = entries[0];
+                book.Price = decimal.Parse(entries[1]);
+                book.Title = entries[2];               
+                book.CountryId = int.Parse(entries[3]);
+                booksCSV.Add(book);
+            }
+            ProcessCSV(booksCSV);
+        }
+        private void ProcessCSV(List<Book> csvBook)
+        {
+            string sql = "INSERT INTO Book (Author, Title ,Price, CountryId)" +
+                         "VALUES (@Author, @Title, @Price, @CountryId) ";
+
+            //foreach (var book in csvBook)
+            //{
+                using (IDbConnection connection = new SqlConnection(GetConnectionString.ConStr("WPFBooks")))
+                {
+                    connection.Execute(sql, csvBook);
+                }
+            //}
         }
     }
 }
