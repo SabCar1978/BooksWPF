@@ -58,7 +58,7 @@ namespace BooksWPF
             newBook.Title = txtTitle.Text;
             newBook.Price = decimal.Parse(txtPrice.Text);
             newBook.CountryId = (int)cboCountry.SelectedValue;
-            int id  = AddBook(newBook);
+            int id = AddBook(newBook);
             ClearFields();
             PopulateListBooks();
             lblId.Content = id.ToString() + " Created!";
@@ -79,7 +79,7 @@ namespace BooksWPF
             using (IDbConnection connection = new SqlConnection(GetConnectionString.ConStr("WPFBooks")))
             {
                 var returnedId = connection.Query<int>(sql, newbook).Single();
-                return returnedId;          
+                return returnedId;
             }
         }
         private void lstBooks_SelectionChanged(object sender, System.Windows.Controls.SelectionChangedEventArgs e)
@@ -136,9 +136,9 @@ namespace BooksWPF
         }
         private void btnDeleteBook_Click(object sender, RoutedEventArgs e)
         {
-            MessageBoxResult result = MessageBox.Show($"Do you want to delete the book with ID {lblId.Content}", 
-                                                        "Confirmation", 
-                                                        MessageBoxButton.YesNo, 
+            MessageBoxResult result = MessageBox.Show($"Do you want to delete the book with ID {lblId.Content}",
+                                                        "Confirmation",
+                                                        MessageBoxButton.YesNo,
                                                         MessageBoxImage.Question);
             if (result == MessageBoxResult.Yes)
             {
@@ -148,21 +148,21 @@ namespace BooksWPF
             else
             {
                 return;
-            }        
+            }
         }
 
         private void btnUploadCSV_Click(object sender, RoutedEventArgs e)
         {
             string filepath = @"C:\Intec\Data\CommaSep.txt";
             List<Book> booksCSV = new List<Book>();
-            List<string> lines = File.ReadAllLines(filepath).ToList(); 
+            List<string> lines = File.ReadAllLines(filepath).ToList();
             foreach (string line in lines)
             {
                 string[] entries = line.Split(';');
                 Book book = new Book();
                 book.Author = entries[0];
                 book.Price = decimal.Parse(entries[1]);
-                book.Title = entries[2];               
+                book.Title = entries[2];
                 book.CountryId = int.Parse(entries[3]);
                 booksCSV.Add(book);
             }
@@ -170,16 +170,26 @@ namespace BooksWPF
         }
         private void ProcessCSV(List<Book> csvBook)
         {
+            // INSERT BOOK per BOOK
             string sql = "INSERT INTO Book (Author, Title ,Price, CountryId)" +
-                         "VALUES (@Author, @Title, @Price, @CountryId) ";
-
-            //foreach (var book in csvBook)
-            //{
+                         "VALUES (@Author, @Title, @Price, @CountryId)";
+            foreach (Book book in csvBook)
+            {
                 using (IDbConnection connection = new SqlConnection(GetConnectionString.ConStr("WPFBooks")))
                 {
-                    connection.Execute(sql, csvBook);
+                    connection.Execute(sql, book);
                 }
-            //}
+            }
+        }
+        private void BulkProcessCSV(List<Book> csvBook)
+        {
+            // INSERT books as BULK
+            string sql = "INSERT INTO Book (Author, Title ,Price, CountryId)" +
+                         "VALUES (@Author, @Title, @Price, @CountryId)";
+            using (IDbConnection connection = new SqlConnection(GetConnectionString.ConStr("WPFBooks")))
+            {
+                connection.Execute(sql, csvBook);
+            }
         }
     }
 }
