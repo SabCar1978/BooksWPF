@@ -17,6 +17,7 @@ namespace BooksWPF
     {
         List<Book> books = new List<Book>();
         List<Country> countries = new List<Country>();
+        CultureInfo invC = CultureInfo.InvariantCulture; // om punt als decimaal te beschouwen
         public MainWindow()
         {
             InitializeComponent();
@@ -57,7 +58,7 @@ namespace BooksWPF
             Book newBook = new Book();
             newBook.Author = txtAuthor.Text;
             newBook.Title = txtTitle.Text;
-            newBook.Price = decimal.Parse(txtPrice.Text);
+            newBook.Price = decimal.Parse(txtPrice.Text,invC);
             newBook.CountryId = (int)cboCountry.SelectedValue;
             int id = AddBook(newBook);
             ClearFields();
@@ -120,7 +121,7 @@ namespace BooksWPF
             updatedBook.Id = (int)lblId.Content;
             updatedBook.Title = txtTitle.Text;
             updatedBook.Author = txtAuthor.Text;
-            updatedBook.Price = decimal.Parse(txtPrice.Text);
+            updatedBook.Price = decimal.Parse(txtPrice.Text,invC);
             updatedBook.CountryId = (int)cboCountry.SelectedValue;
             UpdateBook(updatedBook);
             PopulateListBooks();
@@ -157,9 +158,9 @@ namespace BooksWPF
 
             List<Book> booksCSV = new List<Book>();
             List<string> lines = File.ReadAllLines(filepath).ToList();
+            
             char[] separators = new char[] { ';', '!', '?', ':' };
-
-            CultureInfo invC = CultureInfo.InvariantCulture; // om punt als decimaal te beschouwen
+       
             foreach (string line in lines)
             {
                 string[] entries = line.Split(separators, System.StringSplitOptions.RemoveEmptyEntries);
@@ -210,6 +211,28 @@ namespace BooksWPF
         private void btnSearchByTitle_Click(object sender, RoutedEventArgs e)
         {
             lstBooks.ItemsSource = SearchByTitle(txtSearchByTitle.Text);
+        }
+
+        private void btnReset_Click(object sender, RoutedEventArgs e)
+        {
+            MessageBoxResult result = MessageBox.Show($"Do you want to reset?",
+                                                        "Confirmation",
+                                                        MessageBoxButton.YesNo,
+                                                        MessageBoxImage.Question);
+            if (result == MessageBoxResult.Yes) 
+            { 
+                lblId.Content = string.Empty;
+                txtAuthor.Text = string.Empty;
+                txtTitle.Text = string.Empty;
+                txtPrice.Text = string.Empty;
+                cboCountry.SelectedIndex = -1;
+                lstBooks.ItemsSource = GetAllBooks();
+                txtSearchByTitle.Text = string.Empty;
+            }
+            else
+            {
+                return;
+            }
         }
     }
 }

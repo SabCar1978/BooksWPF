@@ -5,8 +5,11 @@
         xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
         xmlns:local="clr-namespace:BooksWPF"
         mc:Ignorable="d"
-        Title="MainWindow" Height="480" Width="760"
-        ResizeMode="NoResize">
+        Title="BOOKSWPF" Height="480" Width="760"
+        ResizeMode="NoResize" Topmost="True" Icon="/microscopB.png" Foreground="{x:Null}" Background="{x:Null}" FontFamily="Candara" FontWeight="Bold" FontSize="14">
+    <Window.FocusVisualStyle>
+        <Style/>
+    </Window.FocusVisualStyle>
     <Grid Margin="0,3,0,-36">
         <Grid.Background>
             <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
@@ -18,21 +21,32 @@
             <ColumnDefinition Width="24*"/>
             <ColumnDefinition Width="26*"/>
             <ColumnDefinition Width="55*"/>
-            <ColumnDefinition Width="185*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="60*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="20*"/>
+            <ColumnDefinition Width="35*"/>
             <ColumnDefinition Width="55*"/>
-            <ColumnDefinition Width="320*"/>
-            <ColumnDefinition Width="95*"/>
+            <ColumnDefinition Width="65*"/>
+            <ColumnDefinition Width="30*"/>
+            <ColumnDefinition Width="125*"/>
+            <ColumnDefinition Width="25*"/>
+            <ColumnDefinition Width="75*"/>
+            <ColumnDefinition Width="75*"/>
+            <ColumnDefinition Width="10*"/>
+            <ColumnDefinition Width="10*"/>
         </Grid.ColumnDefinitions>
         <Label x:Name="lblAuthor" Content="Author" HorizontalAlignment="Left" Margin="15,76,0,0" VerticalAlignment="Top" FontSize="14" RenderTransformOrigin="0.759,0.595" Foreground="Yellow" FontWeight="Bold" Grid.Column="2" Grid.ColumnSpan="2"/>
-        <Label x:Name="lblTitle" Content="Title" HorizontalAlignment="Left" Margin="0,76,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.395,-0.114" Width="64" FontSize="14" Foreground="Yellow" FontWeight="Bold" Grid.Column="4" Grid.ColumnSpan="2"/>
-        <Label x:Name="lblPrice" Content="Price" HorizontalAlignment="Left" Margin="98,76,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.263,-0.422" Width="68" FontSize="14" Foreground="Yellow" FontWeight="Bold" Grid.Column="5"/>
-        <Label x:Name="lblCountry" Content="Country" HorizontalAlignment="Left" Margin="207,76,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.526,-1.116" FontSize="14" Foreground="Yellow" FontWeight="Bold" Grid.Column="5"/>
-        <TextBox x:Name="txtAuthor" HorizontalAlignment="Left" Margin="0,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147" Grid.Column="1" Grid.ColumnSpan="3"/>
-        <TextBox x:Name="txtTitle" HorizontalAlignment="Left" Margin="96,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="204" Grid.ColumnSpan="3" Grid.Column="3" RenderTransformOrigin="0.467,0.615"/>
-        <TextBox x:Name="txtPrice" HorizontalAlignment="Left" Margin="87,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59" RenderTransformOrigin="0.459,-0.276" Grid.Column="5"/>
-        <ComboBox x:Name="cboCountry" HorizontalAlignment="Left" Margin="171,103,0,0" VerticalAlignment="Top" Width="135" Grid.Column="5" RenderTransformOrigin="0,0.594"/>
-        <Label x:Name="lblHeaderId" Content="Book ID" HorizontalAlignment="Left" Margin="4,21,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Foreground="Cyan" Grid.Column="4" Background="{x:Null}" BorderBrush="#FF861B1B" Grid.ColumnSpan="2"/>
-        <Label x:Name="lblId" HorizontalAlignment="Left" Margin="290,10,0,0" VerticalAlignment="Top" FontSize="24" Foreground="Yellow" Background="{x:Null}" FontWeight="Bold" Width="125" Grid.Column="5" Height="66" Grid.ColumnSpan="2">
+        <Label x:Name="lblTitle" Content="Title" HorizontalAlignment="Left" Margin="0,76,0,0" VerticalAlignment="Top" RenderTransformOrigin="-0.395,-0.114" Width="64" FontSize="14" Foreground="Yellow" FontWeight="Bold" Grid.Column="9" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblPrice" Content="Price" HorizontalAlignment="Left" Margin="3,76,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.263,-0.422" Width="68" FontSize="14" Foreground="Yellow" FontWeight="Bold" Grid.Column="12"/>
+        <Label x:Name="lblCountry" Content="Country" HorizontalAlignment="Left" Margin="112,76,0,0" VerticalAlignment="Top" RenderTransformOrigin="0.526,-1.116" FontSize="14" Foreground="Yellow" FontWeight="Bold" Grid.Column="12" Grid.ColumnSpan="3"/>
+        <TextBox x:Name="txtAuthor" HorizontalAlignment="Left" Margin="0,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="147" Grid.Column="1" Grid.ColumnSpan="4"/>
+        <TextBox x:Name="txtTitle" HorizontalAlignment="Left" Margin="16,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="204" Grid.ColumnSpan="6" Grid.Column="5" RenderTransformOrigin="0.467,0.615"/>
+        <TextBox x:Name="txtPrice" HorizontalAlignment="Left" Margin="22,105,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="59" RenderTransformOrigin="0.459,-0.276" Grid.Column="11" Grid.ColumnSpan="2"/>
+        <ComboBox x:Name="cboCountry" HorizontalAlignment="Left" Margin="76,103,0,0" VerticalAlignment="Top" Width="135" Grid.Column="12" RenderTransformOrigin="0,0.594" Grid.ColumnSpan="3"/>
+        <Label x:Name="lblHeaderId" Content="Book ID" HorizontalAlignment="Left" Margin="4,21,0,0" VerticalAlignment="Top" FontSize="20" FontWeight="Bold" Foreground="Cyan" Grid.Column="9" Background="{x:Null}" BorderBrush="#FF861B1B" Grid.ColumnSpan="2"/>
+        <Label x:Name="lblId" HorizontalAlignment="Left" Margin="45,10,0,0" VerticalAlignment="Top" FontSize="24" Foreground="Yellow" Background="{x:Null}" FontWeight="Bold" Width="125" Grid.Column="14" Height="66" Grid.ColumnSpan="4">
             <Image Height="59" Width="174" Source="/books.png" RenderTransformOrigin="0.5,0.5">
                 <Image.RenderTransform>
                     <TransformGroup>
@@ -44,17 +58,24 @@
                 </Image.RenderTransform>
             </Image>
         </Label>
-        <ListBox x:Name="lstBooks" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,166,174,199" SelectionChanged="lstBooks_SelectionChanged" Grid.ColumnSpan="5" Grid.Column="1"/>
-        <Button x:Name="btnAddBook" Content="Add New Book" HorizontalAlignment="Left" Margin="171,166,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,-0.248" Width="135" BorderBrush="Red" Click="btnAddBook_Click" Grid.Column="5" Height="25" Background="#FFDDDDDD" FontWeight="Bold"/>
-        <Button x:Name="btnUpdateBook" Content="Update Book" HorizontalAlignment="Left" Margin="171,231,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,-0.248" Width="135" BorderBrush="Red" Click="btnUpdateBook_Click" Grid.Column="5" Height="23" FontWeight="Bold"/>
-        <Button x:Name="btnDeleteBook" Content="Delete Book" HorizontalAlignment="Left" Margin="171,291,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,-0.248" Width="135" BorderBrush="Red" Grid.Column="5" Click="btnDeleteBook_Click" Height="25" FontWeight="Bold"/>
-        <Button x:Name="btnUploadCSV" Grid.Column="5" Content="Upload CSV" HorizontalAlignment="Left" Height="22" Margin="171,348,0,0" VerticalAlignment="Top" Width="135" FontWeight="Bold" BorderBrush="#FF01035B" Click="btnUploadCSV_Click" RenderTransformOrigin="3.553,0.654"/>
-        <TextBox x:Name="txtSearchByTitle" Grid.Column="1" HorizontalAlignment="Left" Margin="0,324,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="195" Grid.ColumnSpan="3"/>
-        <Button x:Name="btnSearchByTitle" Grid.Column="1" Content="Search" HorizontalAlignment="Left" Margin="0,348,0,0" VerticalAlignment="Top" Width="120" BorderBrush="Lime" FontWeight="Bold" Height="22" Click="btnSearchByTitle_Click" Grid.ColumnSpan="3"/>
+        <ListBox x:Name="lstBooks" d:ItemsSource="{d:SampleData ItemCount=5}" Margin="0,166,74,199" SelectionChanged="lstBooks_SelectionChanged" Grid.ColumnSpan="12" Grid.Column="1"/>
+        <Button x:Name="btnAddBook" Content="Add New Book" HorizontalAlignment="Left" Margin="76,166,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,-0.248" Width="135" BorderBrush="Red" Click="btnAddBook_Click" Grid.Column="12" Height="25" Background="#FFDDDDDD" FontWeight="Bold" Grid.ColumnSpan="3"/>
+        <Button x:Name="btnUpdateBook" Content="Update Book" HorizontalAlignment="Left" Margin="76,231,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,-0.248" Width="135" BorderBrush="Red" Click="btnUpdateBook_Click" Grid.Column="12" Height="23" FontWeight="Bold" Grid.ColumnSpan="3"/>
+        <Button x:Name="btnDeleteBook" Content="Delete Book" HorizontalAlignment="Left" Margin="76,291,0,0" VerticalAlignment="Top" RenderTransformOrigin="0,-0.248" Width="135" BorderBrush="Red" Grid.Column="12" Click="btnDeleteBook_Click" Height="25" FontWeight="Bold" Grid.ColumnSpan="3"/>
+        <Button x:Name="btnUploadCSV" Grid.Column="12" Content="Upload CSV" HorizontalAlignment="Left" Height="22" Margin="76,348,0,0" VerticalAlignment="Top" Width="135" FontWeight="Bold" BorderBrush="#FF01035B" Click="btnUploadCSV_Click" RenderTransformOrigin="3.553,0.654" Grid.ColumnSpan="3"/>
+        <TextBox x:Name="txtSearchByTitle" Grid.Column="1" HorizontalAlignment="Left" Margin="0,324,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="195" Grid.ColumnSpan="6"/>
+        <Button x:Name="btnSearchByTitle" Grid.Column="1" Content="Search" HorizontalAlignment="Left" Margin="0,348,0,0" VerticalAlignment="Top" Width="120" BorderBrush="Lime" FontWeight="Bold" Height="22" Click="btnSearchByTitle_Click" Grid.ColumnSpan="4"/>
         <Label x:Name="LblSearch" Content="Search Title:" HorizontalAlignment="Left" Margin="21,298,0,0" VerticalAlignment="Top" Cursor="" Foreground="Lime" Grid.ColumnSpan="4" FontWeight="Bold" FontSize="14"/>
-        <Button x:Name="btnReset" Grid.Column="4" Content="Reset" HorizontalAlignment="Left" Margin="32,333,0,0" VerticalAlignment="Top" Width="118" Height="40" FontWeight="Bold" FontSize="18" Foreground="#FFF70606" BorderBrush="#FFF1FF00" Background="#FFDDDDDD" Grid.ColumnSpan="2"/>
+        <Button x:Name="btnReset" Grid.Column="9" Content="Reset" HorizontalAlignment="Left" Margin="32,333,0,0" VerticalAlignment="Top" Width="118" Height="40" FontWeight="Bold" FontSize="18" Foreground="#FFF70606" BorderBrush="#FFF1FF00" Grid.ColumnSpan="3" Click="btnReset_Click">
+            <Button.Background>
+                <LinearGradientBrush EndPoint="0.5,1" StartPoint="0.5,0">
+                    <GradientStop Color="#FF1D7EBB" Offset="0.856"/>
+                    <GradientStop Color="#FF18EBFB" Offset="0.31"/>
+                </LinearGradientBrush>
+            </Button.Background>
+        </Button>
         <Image Grid.Column="2" HorizontalAlignment="Center" Height="51" Margin="0,375,0,0" VerticalAlignment="Top" Width="41" Source="/loep.png"/>
-        <Image Source="/books.png" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="4" Margin="-22,10,152,427">
+        <Image Source="/books.png" RenderTransformOrigin="0.5,0.5" Grid.ColumnSpan="5" Margin="-22,10,47,427">
             <Image.RenderTransform>
                 <TransformGroup>
                     <ScaleTransform/>
@@ -64,11 +85,11 @@
                 </TransformGroup>
             </Image.RenderTransform>
         </Image>
-        <Image Grid.Column="5" HorizontalAlignment="Left" Height="34" Margin="314,162,0,0" VerticalAlignment="Top" Width="51" Source="/icons8-plus-100.png" Grid.ColumnSpan="2"/>
-        <Image Grid.Column="5" HorizontalAlignment="Left" Height="31" Margin="316,223,0,0" VerticalAlignment="Top" Width="48" Source="/icons8-edit-64.png" RenderTransformOrigin="0.505,0.324" Grid.ColumnSpan="2"/>
-        <Image Grid.Column="5" HorizontalAlignment="Left" Height="27" Margin="318,289,0,0" VerticalAlignment="Top" Width="33" Source="/icons8-close-94.png" Grid.ColumnSpan="2"/>
-        <Image Grid.Column="5" HorizontalAlignment="Left" Height="32" Margin="315,341,0,0" VerticalAlignment="Top" Width="42" Source="/icons8-upload-to-the-cloud-96.png" Grid.ColumnSpan="2"/>
-        <Image Grid.Column="4" HorizontalAlignment="Left" Height="72" Margin="54,317,0,0" VerticalAlignment="Top" Width="93" Source="/icons8-restart-69.png" Grid.ColumnSpan="2"/>
+        <Image Grid.Column="14" HorizontalAlignment="Left" Height="34" Margin="69,162,0,0" VerticalAlignment="Top" Width="51" Source="/icons8-plus-100.png" Grid.ColumnSpan="2"/>
+        <Image Grid.Column="14" HorizontalAlignment="Left" Height="31" Margin="71,223,0,0" VerticalAlignment="Top" Width="48" Source="/icons8-edit-64.png" RenderTransformOrigin="0.505,0.324" Grid.ColumnSpan="2"/>
+        <Image Grid.Column="14" HorizontalAlignment="Left" Height="27" Margin="73,289,0,0" VerticalAlignment="Top" Width="33" Source="/icons8-close-94.png" Grid.ColumnSpan="2"/>
+        <Image Grid.Column="14" HorizontalAlignment="Left" Height="32" Margin="70,341,0,0" VerticalAlignment="Top" Width="42" Source="/icons8-upload-to-the-cloud-96.png" Grid.ColumnSpan="2"/>
+        <Image Grid.Column="10" HorizontalAlignment="Left" Height="38" Margin="17,378,0,0" VerticalAlignment="Top" Width="35" Source="/icons8-restart-69.png"/>
 
     </Grid>
 </Window>
